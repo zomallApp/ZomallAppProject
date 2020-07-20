@@ -1,8 +1,8 @@
 //
 //  SceneDelegate.swift
-//  ZomallApp
+//  Messages
 //
-//  Created by Usman on 15/07/2020.
+//  Created by Usman on 17/07/2020.
 //  Copyright © 2020 Usman. All rights reserved.
 //
 
@@ -50,4 +50,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
 }
+
 

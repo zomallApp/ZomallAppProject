@@ -59,6 +59,7 @@
 				B697C12524C1B4FD006CE63E /* Model */,
 				B697C10824BF35D5006CE63E /* ZomallApp */,
 				B697C10724BF35D5006CE63E /* Products */,
+				B697C12924C1BC99006CE63E /* View */,
 				F4470A8EDB98F7558D24FD67 /* Pods */,
 				FFF07FC2A878BAC0A82C381E /* Frameworks */,
 			);
@@ -87,7 +88,6 @@
 		B697C12524C1B4FD006CE63E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				B697C12924C1BC99006CE63E /* View */,
 				B697C12724C1B873006CE63E /* Message.swift */,
 				B697C15824C2E5D5006CE63E /* chatModel.swift */,
 			);

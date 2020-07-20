@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B653055224C5B59F00ECB390 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B653055124C5B59E00ECB390 /* GoogleService-Info.plist */; };
 		B697C10A24BF35D5006CE63E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B697C10924BF35D5006CE63E /* AppDelegate.swift */; };
 		B697C11124BF35D5006CE63E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B697C10F24BF35D5006CE63E /* Main.storyboard */; };
 		B697C11324BF35D8006CE63E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B697C11224BF35D8006CE63E /* Assets.xcassets */; };
@@ -25,7 +24,6 @@
 /* Begin PBXFileReference section */
 		9B732FB065FDFDD0AFC1B84E /* Pods-ZomallApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZomallApp.debug.xcconfig"; path = "Target Support Files/Pods-ZomallApp/Pods-ZomallApp.debug.xcconfig"; sourceTree = "<group>"; };
 		AA585ABFDC9319544B72A6E5 /* Pods-ZomallApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZomallApp.release.xcconfig"; path = "Target Support Files/Pods-ZomallApp/Pods-ZomallApp.release.xcconfig"; sourceTree = "<group>"; };
-		B653055124C5B59E00ECB390 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B697C10624BF35D5006CE63E /* ZomallApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZomallApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B697C10924BF35D5006CE63E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B697C11024BF35D5006CE63E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -82,7 +80,6 @@
 				B697C11224BF35D8006CE63E /* Assets.xcassets */,
 				B697C11424BF35D8006CE63E /* LaunchScreen.storyboard */,
 				B697C11724BF35D8006CE63E /* Info.plist */,
-				B653055124C5B59E00ECB390 /* GoogleService-Info.plist */,
 			);
 			path = ZomallApp;
 			sourceTree = "<group>";
@@ -195,7 +192,6 @@
 			files = (
 				B697C11624BF35D8006CE63E /* LaunchScreen.storyboard in Resources */,
 				B697C12D24C1BCBB006CE63E /* MessageCellTableViewCell.xib in Resources */,
-				B653055224C5B59F00ECB390 /* GoogleService-Info.plist in Resources */,
 				B697C11324BF35D8006CE63E /* Assets.xcassets in Resources */,
 				B697C11124BF35D5006CE63E /* Main.storyboard in Resources */,
 			);

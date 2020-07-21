@@ -18,7 +18,8 @@ class HelpingClass {
 extension UIViewController {
     
     
-    private func showSnackBarMessage(snackBarMessage:MDCSnackbarMessage,backgroundColor:UIColor,message:String,action:MDCSnackbarMessageAction?){
+     func showSnackBarMessage(backgroundColor:UIColor,message:String,action:MDCSnackbarMessageAction?){
+        let snackBarMessage = MDCSnackbarMessage()
         snackBarMessage.action = action
         snackBarMessage.text = message
         MDCSnackbarManager.snackbarMessageViewBackgroundColor = backgroundColor

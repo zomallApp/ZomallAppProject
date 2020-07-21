@@ -41,6 +41,7 @@ class SignupViewController: UIViewController {
         self.maleCheckBoxButton.setImage(#imageLiteral(resourceName: "tick"), for: .normal)
         self.isFemaleCheckBoxClicked = false
         self.isMaleCheckBoxClicked = true
+        self.showSnackBarMessage(backgroundColor: HelpingClass.greenSuccessBackgroundColor, message: "Male Checkbox Selected.", action: nil)
     }
     @IBAction func femaleCheckBox(_ sender: Any) {
       self.maleCheckBoxButton.setImage(#imageLiteral(resourceName: "uncheckBox"), for: .normal)

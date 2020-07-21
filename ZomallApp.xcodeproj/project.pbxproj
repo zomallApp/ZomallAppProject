@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5DC8793F24C62551009A4C16 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC8793E24C62551009A4C16 /* LoginViewController.swift */; };
+		5DC8794124C62564009A4C16 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC8794024C62564009A4C16 /* SignupViewController.swift */; };
+		5DC8794324C62A47009A4C16 /* LoginOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC8794224C62A47009A4C16 /* LoginOptionsViewController.swift */; };
+		5DC8794524C63AFA009A4C16 /* LoginSignupContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC8794424C63AFA009A4C16 /* LoginSignupContainerViewController.swift */; };
+		5DC8794824C6C06C009A4C16 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC8794724C6C06C009A4C16 /* Utilities.swift */; };
 		B697C10A24BF35D5006CE63E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B697C10924BF35D5006CE63E /* AppDelegate.swift */; };
 		B697C11124BF35D5006CE63E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B697C10F24BF35D5006CE63E /* Main.storyboard */; };
 		B697C11324BF35D8006CE63E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B697C11224BF35D8006CE63E /* Assets.xcassets */; };
@@ -22,6 +27,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5DC8793E24C62551009A4C16 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		5DC8794024C62564009A4C16 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
+		5DC8794224C62A47009A4C16 /* LoginOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOptionsViewController.swift; sourceTree = "<group>"; };
+		5DC8794424C63AFA009A4C16 /* LoginSignupContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginSignupContainerViewController.swift; sourceTree = "<group>"; };
+		5DC8794724C6C06C009A4C16 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		9B732FB065FDFDD0AFC1B84E /* Pods-ZomallApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZomallApp.debug.xcconfig"; path = "Target Support Files/Pods-ZomallApp/Pods-ZomallApp.debug.xcconfig"; sourceTree = "<group>"; };
 		AA585ABFDC9319544B72A6E5 /* Pods-ZomallApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZomallApp.release.xcconfig"; path = "Target Support Files/Pods-ZomallApp/Pods-ZomallApp.release.xcconfig"; sourceTree = "<group>"; };
 		B697C10624BF35D5006CE63E /* ZomallApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZomallApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,9 +62,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5DC8794624C6C057009A4C16 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				5DC8794724C6C06C009A4C16 /* Utilities.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		B697C0FD24BF35D5006CE63E = {
 			isa = PBXGroup;
 			children = (
+				5DC8794624C6C057009A4C16 /* Utilities */,
 				B697C12624C1B506006CE63E /* Controller */,
 				B697C12524C1B4FD006CE63E /* Model */,
 				B697C10824BF35D5006CE63E /* ZomallApp */,
@@ -99,6 +118,10 @@
 			children = (
 				B697C12324C1B4F7006CE63E /* MessageVC.swift */,
 				B697C15624C2E470006CE63E /* ChatVC.swift */,
+				5DC8793E24C62551009A4C16 /* LoginViewController.swift */,
+				5DC8794024C62564009A4C16 /* SignupViewController.swift */,
+				5DC8794224C62A47009A4C16 /* LoginOptionsViewController.swift */,
+				5DC8794424C63AFA009A4C16 /* LoginSignupContainerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -141,7 +164,7 @@
 				B697C10224BF35D5006CE63E /* Sources */,
 				B697C10324BF35D5006CE63E /* Frameworks */,
 				B697C10424BF35D5006CE63E /* Resources */,
-				3A4ADF87862EE6FEE7FF531A /* [CP] Embed Pods Frameworks */,
+				7FE64ED0A1E50BB3977BEAD6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -222,7 +245,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		3A4ADF87862EE6FEE7FF531A /* [CP] Embed Pods Frameworks */ = {
+		7FE64ED0A1E50BB3977BEAD6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -246,10 +269,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5DC8794124C62564009A4C16 /* SignupViewController.swift in Sources */,
 				B697C15724C2E470006CE63E /* ChatVC.swift in Sources */,
 				B697C15524C1C976006CE63E /* SceneDelegate.swift in Sources */,
 				B697C12424C1B4F7006CE63E /* MessageVC.swift in Sources */,
+				5DC8794324C62A47009A4C16 /* LoginOptionsViewController.swift in Sources */,
+				5DC8794524C63AFA009A4C16 /* LoginSignupContainerViewController.swift in Sources */,
+				5DC8794824C6C06C009A4C16 /* Utilities.swift in Sources */,
 				B697C12C24C1BCBB006CE63E /* MessageCellTableViewCell.swift in Sources */,
+				5DC8793F24C62551009A4C16 /* LoginViewController.swift in Sources */,
 				B697C15924C2E5D5006CE63E /* chatModel.swift in Sources */,
 				B697C12824C1B873006CE63E /* Message.swift in Sources */,
 				B697C10A24BF35D5006CE63E /* AppDelegate.swift in Sources */,
@@ -407,7 +435,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = COM.usman.ZomallApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -426,7 +454,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = COM.usman.ZomallApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

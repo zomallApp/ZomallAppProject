@@ -7,17 +7,17 @@
 //
 
 import Foundation
-import MessageKit
+import MessageUI
 
-struct chats: MessageType {
-    var sender: SenderType
-    var messageId: String
-    var sentDate: Date
-    var kind: MessageKind
-}
-struct Sender: SenderType {
-    var photoURL: String
-    var senderId: String
-    var displayName: String
-}
+//struct chats: MessageType {
+//    var sender: SenderType
+//    var messageId: String
+//    var sentDate: Date
+//    var kind: MessageKind
+//}
+//struct Sender: SenderType {
+//    var photoURL: String
+//    var senderId: String
+//    var displayName: String
+//}
     

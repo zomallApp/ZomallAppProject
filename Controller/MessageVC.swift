@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class MessageVC: UIViewController, UITableViewDataSource,UITableViewDelegate {
     
     var messages: [Message] = [
@@ -55,10 +56,10 @@ class MessageVC: UIViewController, UITableViewDataSource,UITableViewDelegate {
          return 80 // custom height
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let vc = ChatVC()
-        vc.title = "Usman"
-        vc.navigationItem.largeTitleDisplayMode = .never
-        navigationController?.pushViewController(vc, animated: true)
+      //  let vc = ChatVC()
+//        vc.title = "Usman"
+//        vc.navigationItem.largeTitleDisplayMode = .never
+//        navigationController?.pushViewController(vc, animated: true)
         
         
     }

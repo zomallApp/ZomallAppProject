@@ -13,6 +13,7 @@ import MaterialComponents.MaterialSnackbar
 class HelpingClass {
     static let redAlertBackgroundColor = UIColor(hexString: "d25151")
     static let greenSuccessBackgroundColor = UIColor(hexString: "7ed321")
+    static let apiURL = "http://138.197.117.106/api/"
 }
 
 extension UIViewController {

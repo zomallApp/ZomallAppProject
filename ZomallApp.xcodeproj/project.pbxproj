@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D4CE9E324C832450029E2CB /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4CE9E224C832450029E2CB /* ApiManager.swift */; };
+		5D4CE9E524C83FCC0029E2CB /* LoginModelStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4CE9E424C83FCC0029E2CB /* LoginModelStruct.swift */; };
+		5D4CE9E724C844D50029E2CB /* LoginModelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4CE9E624C844D50029E2CB /* LoginModelResponse.swift */; };
 		5DC8793F24C62551009A4C16 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC8793E24C62551009A4C16 /* LoginViewController.swift */; };
 		5DC8794124C62564009A4C16 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC8794024C62564009A4C16 /* SignupViewController.swift */; };
 		5DC8794324C62A47009A4C16 /* LoginOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC8794224C62A47009A4C16 /* LoginOptionsViewController.swift */; };
@@ -27,6 +30,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D4CE9E224C832450029E2CB /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		5D4CE9E424C83FCC0029E2CB /* LoginModelStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModelStruct.swift; sourceTree = "<group>"; };
+		5D4CE9E624C844D50029E2CB /* LoginModelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModelResponse.swift; sourceTree = "<group>"; };
 		5DC8793E24C62551009A4C16 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5DC8794024C62564009A4C16 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		5DC8794224C62A47009A4C16 /* LoginOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOptionsViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				5DC8794724C6C06C009A4C16 /* Utilities.swift */,
+				5D4CE9E224C832450029E2CB /* ApiManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -78,6 +85,7 @@
 				B697C12524C1B4FD006CE63E /* Model */,
 				B697C10824BF35D5006CE63E /* ZomallApp */,
 				B697C10724BF35D5006CE63E /* Products */,
+				B697C10F24BF35D5006CE63E /* Main.storyboard */,
 				B697C12924C1BC99006CE63E /* View */,
 				F4470A8EDB98F7558D24FD67 /* Pods */,
 				FFF07FC2A878BAC0A82C381E /* Frameworks */,
@@ -109,6 +117,8 @@
 			children = (
 				B697C12724C1B873006CE63E /* Message.swift */,
 				B697C15824C2E5D5006CE63E /* chatModel.swift */,
+				5D4CE9E424C83FCC0029E2CB /* LoginModelStruct.swift */,
+				5D4CE9E624C844D50029E2CB /* LoginModelResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -131,7 +141,6 @@
 			children = (
 				B697C12A24C1BCBB006CE63E /* MessageCellTableViewCell.swift */,
 				B697C12B24C1BCBB006CE63E /* MessageCellTableViewCell.xib */,
-				B697C10F24BF35D5006CE63E /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -269,14 +278,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D4CE9E524C83FCC0029E2CB /* LoginModelStruct.swift in Sources */,
 				5DC8794124C62564009A4C16 /* SignupViewController.swift in Sources */,
 				B697C15724C2E470006CE63E /* ChatVC.swift in Sources */,
+				5D4CE9E724C844D50029E2CB /* LoginModelResponse.swift in Sources */,
 				B697C15524C1C976006CE63E /* SceneDelegate.swift in Sources */,
 				B697C12424C1B4F7006CE63E /* MessageVC.swift in Sources */,
 				5DC8794324C62A47009A4C16 /* LoginOptionsViewController.swift in Sources */,
 				5DC8794524C63AFA009A4C16 /* LoginSignupContainerViewController.swift in Sources */,
 				5DC8794824C6C06C009A4C16 /* Utilities.swift in Sources */,
 				B697C12C24C1BCBB006CE63E /* MessageCellTableViewCell.swift in Sources */,
+				5D4CE9E324C832450029E2CB /* ApiManager.swift in Sources */,
 				5DC8793F24C62551009A4C16 /* LoginViewController.swift in Sources */,
 				B697C15924C2E5D5006CE63E /* chatModel.swift in Sources */,
 				B697C12824C1B873006CE63E /* Message.swift in Sources */,

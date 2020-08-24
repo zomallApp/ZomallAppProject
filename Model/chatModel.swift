@@ -8,16 +8,28 @@
 
 import Foundation
 import MessageUI
+import MessageKit
 
-//struct chats: MessageType {
-//    var sender: SenderType
-//    var messageId: String
-//    var sentDate: Date
-//    var kind: MessageKind
-//}
-//struct Sender: SenderType {
-//    var photoURL: String
-//    var senderId: String
-//    var displayName: String
-//}
+struct chats: MessageType {
+     var messageId: String
+     var sender: SenderType
+     var sentDate: Date
+     var kind: MessageKind
+}
+struct Sender: SenderType {
+     var photoURL: String
+     var senderId: String
+     var displayName: String
+}
+struct Media: MediaItem{
+    var url: URL?
+    var image: UIImage?
+    var placeholderImage: UIImage
+    var size: CGSize
+}
+struct Audio: AudioItem{
+    var url: URL
+    var duration: Float
+    var size: CGSize
     
+}

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jOx-fo-Emp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uxy-AS-NHU">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -16,6 +16,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Conersations" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EOb-q0-1Li">
+                                <rect key="frame" x="134.5" y="436" width="145.5" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eDj-ZN-Dym">
                                 <rect key="frame" x="0.0" y="140" width="414" height="756"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -25,6 +31,8 @@
                         <constraints>
                             <constraint firstItem="eDj-ZN-Dym" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="6EL-H9-4DX"/>
                             <constraint firstItem="eDj-ZN-Dym" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="alb-TN-yte"/>
+                            <constraint firstItem="EOb-q0-1Li" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="e7O-YM-hUe"/>
+                            <constraint firstItem="EOb-q0-1Li" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fn8-kr-LiV"/>
                             <constraint firstItem="eDj-ZN-Dym" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="gpK-0L-nk9"/>
                             <constraint firstAttribute="bottom" secondItem="eDj-ZN-Dym" secondAttribute="bottom" id="slH-Cd-mQD"/>
                         </constraints>
@@ -34,10 +42,14 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="compose" id="PmO-tD-Jic">
                             <inset key="largeContentSizeImageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="1"/>
                             <color key="tintColor" name="sender"/>
+                            <connections>
+                                <action selector="newPressed:" destination="BYZ-38-t0r" id="tmS-qn-8Fe"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="messageTableView" destination="eDj-ZN-Dym" id="TN5-ua-cTR"/>
+                        <outlet property="noConversationsLabel" destination="EOb-q0-1Li" id="wYT-jz-Fpa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -354,7 +366,7 @@
             <objects>
                 <viewController id="hdo-9c-zIa" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FNJ-Mr-e5C">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemGray6Color" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="sPC-0X-Ncz"/>
@@ -600,7 +612,7 @@
             <objects>
                 <viewController id="m4S-AK-tb6" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Q11-6S-uct">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Nlb-sT-oai"/>
@@ -616,7 +628,7 @@
             <objects>
                 <viewController id="gVE-Vm-0Dd" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NCq-Hn-igV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="d6K-Al-oRX"/>
@@ -632,7 +644,7 @@
             <objects>
                 <viewController id="FLe-Li-G9v" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dFH-Hz-8fQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="im9-bG-TBh"/>
@@ -657,7 +669,7 @@
             <color red="0.5490196078431373" green="0.011764705882352941" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="reciever">
-            <color red="0.93300002813339233" green="0.93300002813339233" blue="0.93300002813339233" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94900000095367432" green="0.94900000095367432" blue="0.96899998188018799" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="sender">
             <color red="0.91764705882352937" green="0.52549019607843139" blue="0.52156862745098043" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

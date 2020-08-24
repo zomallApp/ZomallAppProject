@@ -8,6 +8,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import Firebase
 
 
 @UIApplicationMain
@@ -18,10 +19,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         IQKeyboardManager.shared.enable = true
         // Override point for customization after application launch.
-//        
-//        FirebaseApp.configure()
-//
-//        let db = Firestore.firestore()
+       
+        let defaults = UserDefaults.standard
+        defaults.set("usmanirfan996@gmail.com", forKey: "email")
+        defaults.set("Usman", forKey: "name")
+
+       FirebaseApp.configure()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil) //Write your storyboard name
+                let viewController = storyboard.instantiateViewControllerWithIdentifier("ViewController")
+                self.window.rootViewController = viewController
+                self.window.makeKeyAndVisible()
+        
         return true
     }
 

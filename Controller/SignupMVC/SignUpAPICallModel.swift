@@ -1,41 +1,21 @@
 //
-//  ApiManager.swift
+//  SignUpAPICallModel.swift
 //  ZomallApp
 //
-//  Created by Baskt QA on 22/07/2020.
+//  Created by Baskt QA on 15/09/2020.
 //  Copyright © 2020 Usman. All rights reserved.
 //
 
 import Foundation
-import Alamofire
 
-class ApiManager {
-    private static var sharedGlobalRecources: ApiManager = {
-
-//         var alamoFireManager : SessionManager?
-           let GR = ApiManager()
-
-           // Configuration
-           // ...
-           let configuration = URLSessionConfiguration.default
-
-           configuration.timeoutIntervalForRequest = 60*5
-
-           configuration.timeoutIntervalForResource = 60*5
-           return GR
-       }()
-       
-       // MARK: - Accessors
-//       
-       class func shared() -> ApiManager {
-           
-           return sharedGlobalRecources
-       }
+struct SignupAPICallModel {
+    weak var delegate: SignupAPIResultDelegate?
+    init() {}
     
-    
-    // check kr isko
-    func loginApiCall(email:String, password: String) {
-        let url = URL(string:"https://sayingz.com/api/webemaillogin")
+}
+extension SignupAPICallModel {
+    func signupApiCall(credential email:String, password: String, name: String, gender: String, dob:String, country:String, age: Int, info: String, image: String, interests: String) {
+        let url = URL(string:"https://sayingz.com/api/signup")
                
                guard let requestUrl = url else { fatalError() }
 
@@ -44,7 +24,7 @@ class ApiManager {
                request.httpMethod = "POST"
                 
                // HTTP Request Parameters which will be sent in HTTP Request Body
-               let postString = "email=\(email)&password=\(password)"
+               let postString = "email=\(email)&password=\(password)&id==123456&type=email&name=\(name)&gender=\(gender)&device_id=12346543&dob=\(dob)&country=\(country)&age=\(age)&info=\(info)&images=\(image)&check=\(interests)"
 
                // Set HTTP Request Body
                request.httpBody = postString.data(using: String.Encoding.utf8)
@@ -63,8 +43,8 @@ class ApiManager {
                         
                                        do {
                                            let decoder = JSONDecoder()
-                                           let result = try decoder.decode(LoginResponseModel.self, from: data)
-                                        self.loginAPIResult(resut: result)
+                                           let result = try decoder.decode(SignupResponseModel.self, from: data)
+                                        self.SignupAPIResult(result: result)
                                            
                                        } catch let error {
                                            print(error.localizedDescription)
@@ -75,8 +55,13 @@ class ApiManager {
         task.resume()
     }
     
-    func loginAPIResult(resut : LoginResponseModel) {
-        print(resut.peoples?.user_name)
+    func SignupAPIResult(result : SignupResponseModel) {
+
+        self.delegate?.signUpAPIResult(status: result.status ?? "Undefined" , result: result)
     }
     
+}
+
+protocol SignupAPIResultDelegate: AnyObject {
+    func signUpAPIResult(status: String, result: SignupResponseModel)
 }

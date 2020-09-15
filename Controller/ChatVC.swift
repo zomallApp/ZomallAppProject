@@ -523,6 +523,8 @@ extension MessageKind {
         case .custom(_):
             return "custom"
             
+        case .linkPreview(_):
+            return "custom"
         }
     }
 }

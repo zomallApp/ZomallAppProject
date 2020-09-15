@@ -56,8 +56,8 @@ static NSString *const kAllMessagesCategory = @"$$___ALL_MESSAGES___$$";
 @property(nonatomic) BOOL isVoiceOverRunningOverride;
 
 /**
- The instance of MDCSnackbarManager that "owns" this internal manager.  Used to get theming
- properties. Can be refactored away in the future.
+ The instance of MDCSnackbarManager.defaultManager that "owns" this internal manager.  Used to get
+ theming properties. Can be refactored away in the future.
  */
 @property(nonatomic, weak) MDCSnackbarManager *manager;
 
@@ -366,10 +366,7 @@ static NSString *const kAllMessagesCategory = @"$$___ALL_MESSAGES___$$";
   } else if (self.presentationHostView) {
     targetView = self.presentationHostView;
   } else if ([window isKindOfClass:[MDCOverlayWindow class]]) {
-    // If the application's window is an overlay window, take advantage of it. Otherwise, just add
-    // our overlay view into the main view controller's hierarchy.
-    MDCOverlayWindow *overlayWindow = (MDCOverlayWindow *)window;
-    [overlayWindow activateOverlay:overlay withLevel:UIWindowLevelNormal];
+    targetView = window;
   } else {
     // Find the most top view controller to display overlay.
     UIViewController *topViewController = [window rootViewController];
@@ -379,7 +376,12 @@ static NSString *const kAllMessagesCategory = @"$$___ALL_MESSAGES___$$";
     targetView = [topViewController view];
   }
 
-  if (targetView) {
+  if ([targetView isKindOfClass:[MDCOverlayWindow class]]) {
+    // If target view is an overlay window, take advantage of it. Otherwise, just add
+    // our overlay view into the main view controller's hierarchy.
+    MDCOverlayWindow *overlayWindow = (MDCOverlayWindow *)targetView;
+    [overlayWindow activateOverlay:overlay withLevel:UIWindowLevelNormal];
+  } else if (targetView) {
     overlay.frame = targetView.bounds;
     overlay.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     overlay.translatesAutoresizingMaskIntoConstraints = YES;

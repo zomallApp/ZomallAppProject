@@ -1,30 +1,34 @@
 //
-//  LoginModelResponse.swift
+//  SignupModelResponse.swift
 //  ZomallApp
 //
-//  Created by Baskt QA on 22/07/2020.
+//  Created by Baskt QA on 16/09/2020.
 //  Copyright © 2020 Usman. All rights reserved.
 //
 
 import Foundation
-struct LoginResponseModel : Codable {
+struct SignupResponseModel : Codable {
     let status : String?
-    let peoples : Peoples?
+    let message : String?
+    let userData : UserData?
 
     enum CodingKeys: String, CodingKey {
 
         case status = "status"
-        case peoples = "peoples"
+        case userData = "peoples"
+        case message = "message"
     }
 
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
+        message = try values.decodeIfPresent(String.self, forKey: .message)
         status = try values.decodeIfPresent(String.self, forKey: .status)
-        peoples = try values.decodeIfPresent(Peoples.self, forKey: .peoples)
+        userData = try values.decodeIfPresent(UserData.self, forKey: .userData)
     }
 
 }
-struct Peoples : Codable {
+
+struct UserData : Codable {
     let user_id : String?
     let user_name : String?
     let send_match : String?
@@ -113,5 +117,4 @@ struct Peoples : Codable {
     }
 
 }
-
 

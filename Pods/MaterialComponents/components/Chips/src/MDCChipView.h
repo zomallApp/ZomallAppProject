@@ -177,6 +177,13 @@
 @property(nonatomic, assign) BOOL centerVisibleArea;
 
 /**
+The calculated inset or outset margins for the rectangle surrounding all of the chip’s visible area.
+
+When @c centerVisibleArea is @c NO, this value is @c UIEdgeInsetsZero.
+*/
+@property(nonatomic, readonly) UIEdgeInsets visibleAreaInsets;
+
+/**
  A block that is invoked when the MDCChipView receives a call to @c
  traitCollectionDidChange:. The block is called after the call to the superclass.
  */
@@ -285,6 +292,27 @@
            forState:(UIControlState)state UI_APPEARANCE_SELECTOR;
 
 /*
+ Returns the ripple color associated with the specified state.
+
+ The ripple color for the specified state. If no ripple color has been set for the specific state,
+ this method returns the title associated with the @c UIControlStateNormal state.
+
+ @note Defaults to @c nil. When @c nil transparent black is used.
+
+ @param state The state that uses the ripple color.
+ @return The ripple color for the requested state.
+ */
+- (nullable UIColor *)rippleColorForState:(UIControlState)state;
+
+/*
+ Sets the ripple color for a particular control state.
+
+ @param rippleColor The ripple color to use for the specified state.
+ @param state The state that uses the specified ripple color.
+ */
+- (void)setRippleColor:(nullable UIColor *)rippleColor forState:(UIControlState)state;
+
+/*
  Returns the shadow color for a particular control state.
 
  If no shadow color has been set for a given state, the returned value will fall back to the value
@@ -323,17 +351,6 @@
  */
 - (void)setTitleColor:(nullable UIColor *)titleColor
              forState:(UIControlState)state UI_APPEARANCE_SELECTOR;
-
-#pragma mark - Deprecated
-
-/**
-The inset or outset margins for the rectangle surrounding all of the chip’s visible area.
-
-A positive value shrinks the visible area of the chip. A negative value expands the visible area
-of the chip.
-*/
-@property(nonatomic, assign) UIEdgeInsets visibleAreaInsets
-    __attribute__((deprecated("Consider using centerVisibleArea to adjust visible area.")));
 
 @end
 

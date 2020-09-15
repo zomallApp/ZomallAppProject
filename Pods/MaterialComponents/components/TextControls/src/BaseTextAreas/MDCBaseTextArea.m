@@ -24,6 +24,8 @@
 #import "private/MDCBaseTextAreaLayout.h"
 #import "private/MDCBaseTextAreaTextView.h"
 
+static char *const kKVOContextMDCBaseTextArea = "kKVOContextMDCBaseTextArea";
+
 static const CGFloat kMDCBaseTextAreaDefaultMinimumNumberOfVisibleLines = (CGFloat)2.0;
 static const CGFloat kMDCBaseTextAreaDefaultMaximumNumberOfVisibleLines = (CGFloat)4.0;
 
@@ -86,6 +88,11 @@ static const CGFloat kMDCBaseTextAreaDefaultMaximumNumberOfVisibleLines = (CGFlo
   [self setUpAssistiveLabels];
   [self setUpTextView];
   [self observeTextViewNotifications];
+  [self observeAssistiveLabelKeyPaths];
+}
+
+- (void)dealloc {
+  [self removeObservers];
 }
 
 #pragma mark Setup
@@ -199,7 +206,16 @@ static const CGFloat kMDCBaseTextAreaDefaultMaximumNumberOfVisibleLines = (CGFlo
   if (![self validateHeight]) {
     [self invalidateIntrinsicContentSize];
   }
-  [self.textView scrollRangeToVisible:self.textView.selectedRange];
+  [self scrollToVisibleText];
+}
+
+- (void)scrollToVisibleText {
+  // This method was added to address b/161887902, with help from
+  // https://stackoverflow.com/a/49631521
+  NSRange range = NSMakeRange(self.textView.text.length - 1, 1);
+  [self.textView scrollRangeToVisible:range];
+  self.textView.scrollEnabled = NO;
+  self.textView.scrollEnabled = YES;
 }
 
 - (MDCBaseTextAreaLayout *)calculateLayoutWithSize:(CGSize)size {
@@ -234,7 +250,8 @@ static const CGFloat kMDCBaseTextAreaDefaultMaximumNumberOfVisibleLines = (CGFlo
                                                       self.normalFont.leading)
                                     numberOfTextRows:self.numberOfLinesOfVisibleText
                                              density:0
-                            preferredContainerHeight:self.preferredContainerHeight];
+                            preferredContainerHeight:self.preferredContainerHeight
+                              isMultilineTextControl:YES];
 }
 
 - (id<MDCTextControlHorizontalPositioning>)createHorizontalPositioningReference {
@@ -285,7 +302,7 @@ static const CGFloat kMDCBaseTextAreaDefaultMaximumNumberOfVisibleLines = (CGFlo
 }
 
 - (CGFloat)numberOfLinesOfText {
-  // For more context on measurinig the lines in a UITextView see here:
+  // For more context on measuring the lines in a UITextView see here:
   // https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/TextLayout/Tasks/CountLines.html
   NSLayoutManager *layoutManager = self.textView.layoutManager;
   NSUInteger numberOfGlyphs = layoutManager.numberOfGlyphs;
@@ -298,8 +315,10 @@ static const CGFloat kMDCBaseTextAreaDefaultMaximumNumberOfVisibleLines = (CGFlo
     numberOfLines += 1;
   }
 
-  if (self.textView.text.length > 0 &&
-      [self.textView.text characterAtIndex:self.textView.text.length - 1] == '\n') {
+  BOOL textEndsInNewLine =
+      self.textView.text.length > 0 &&
+      [self.textView.text characterAtIndex:self.textView.text.length - 1] == '\n';
+  if (textEndsInNewLine) {
     numberOfLines += 1;
   }
   return (CGFloat)numberOfLines;
@@ -453,10 +472,18 @@ static const CGFloat kMDCBaseTextAreaDefaultMaximumNumberOfVisibleLines = (CGFlo
   } else if (labelPosition == MDCTextControlLabelPositionFloating) {
     labelColor = colorViewModel.floatingLabelColor;
   }
-  self.textView.textColor = colorViewModel.textColor;
-  self.leadingAssistiveLabel.textColor = colorViewModel.leadingAssistiveLabelColor;
-  self.trailingAssistiveLabel.textColor = colorViewModel.trailingAssistiveLabelColor;
-  self.label.textColor = labelColor;
+  if (![self.textView.textColor isEqual:colorViewModel.textColor]) {
+    self.textView.textColor = colorViewModel.textColor;
+  }
+  if (![self.leadingAssistiveLabel.textColor isEqual:colorViewModel.leadingAssistiveLabelColor]) {
+    self.leadingAssistiveLabel.textColor = colorViewModel.leadingAssistiveLabelColor;
+  }
+  if (![self.trailingAssistiveLabel.textColor isEqual:colorViewModel.trailingAssistiveLabelColor]) {
+    self.trailingAssistiveLabel.textColor = colorViewModel.trailingAssistiveLabelColor;
+  }
+  if (![self.label.textColor isEqual:labelColor]) {
+    self.label.textColor = labelColor;
+  }
 }
 
 - (void)setTextControlColorViewModel:(MDCTextControlColorViewModel *)TextControlColorViewModel
@@ -555,6 +582,63 @@ static const CGFloat kMDCBaseTextAreaDefaultMaximumNumberOfVisibleLines = (CGFlo
                                            selector:@selector(textViewChanged:)
                                                name:UITextViewTextDidChangeNotification
                                              object:nil];
+}
+
+#pragma mark - Key-value observing
+
+- (void)observeAssistiveLabelKeyPaths {
+  for (NSString *keyPath in [MDCBaseTextArea assistiveLabelKVOKeyPaths]) {
+    [self.leadingAssistiveLabel addObserver:self
+                                 forKeyPath:keyPath
+                                    options:NSKeyValueObservingOptionNew
+                                    context:kKVOContextMDCBaseTextArea];
+    [self.trailingAssistiveLabel addObserver:self
+                                  forKeyPath:keyPath
+                                     options:NSKeyValueObservingOptionNew
+                                     context:kKVOContextMDCBaseTextArea];
+  }
+}
+
+- (void)removeObservers {
+  for (NSString *keyPath in [MDCBaseTextArea assistiveLabelKVOKeyPaths]) {
+    [self.leadingAssistiveLabel removeObserver:self
+                                    forKeyPath:keyPath
+                                       context:kKVOContextMDCBaseTextArea];
+    [self.trailingAssistiveLabel removeObserver:self
+                                     forKeyPath:keyPath
+                                        context:kKVOContextMDCBaseTextArea];
+  }
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath
+                      ofObject:(id)object
+                        change:(NSDictionary<NSKeyValueChangeKey, id> *)change
+                       context:(void *)context {
+  if (context == kKVOContextMDCBaseTextArea) {
+    if (object != self.leadingAssistiveLabel && object != self.trailingAssistiveLabel) {
+      return;
+    }
+
+    for (NSString *assistiveLabelKeyPath in [MDCBaseTextArea assistiveLabelKVOKeyPaths]) {
+      if ([assistiveLabelKeyPath isEqualToString:keyPath]) {
+        [self invalidateIntrinsicContentSize];
+        [self setNeedsLayout];
+        break;
+      }
+    }
+  }
+}
+
++ (NSArray<NSString *> *)assistiveLabelKVOKeyPaths {
+  static NSArray<NSString *> *keyPaths = nil;
+  static dispatch_once_t onceToken;
+  dispatch_once(&onceToken, ^{
+    keyPaths = @[
+      NSStringFromSelector(@selector(text)),
+      NSStringFromSelector(@selector(font)),
+    ];
+  });
+  return keyPaths;
 }
 
 @end

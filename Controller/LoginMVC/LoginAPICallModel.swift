@@ -1,40 +1,21 @@
 //
-//  ApiManager.swift
+//  LoginAPICallModel.swift
 //  ZomallApp
 //
-//  Created by Baskt QA on 22/07/2020.
+//  Created by Baskt QA on 15/09/2020.
 //  Copyright © 2020 Usman. All rights reserved.
 //
 
 import Foundation
-import Alamofire
+import UIKit
 
-class ApiManager {
-    private static var sharedGlobalRecources: ApiManager = {
+struct LoginAPICallModel {
+    weak var delegate: loginAPIResultDelegate?
+    init() {}
+}
 
-//         var alamoFireManager : SessionManager?
-           let GR = ApiManager()
-
-           // Configuration
-           // ...
-           let configuration = URLSessionConfiguration.default
-
-           configuration.timeoutIntervalForRequest = 60*5
-
-           configuration.timeoutIntervalForResource = 60*5
-           return GR
-       }()
-       
-       // MARK: - Accessors
-//       
-       class func shared() -> ApiManager {
-           
-           return sharedGlobalRecources
-       }
-    
-    
-    // check kr isko
-    func loginApiCall(email:String, password: String) {
+extension LoginAPICallModel {
+  func loginApiCall(credential email:String, password: String) {
         let url = URL(string:"https://sayingz.com/api/webemaillogin")
                
                guard let requestUrl = url else { fatalError() }
@@ -64,7 +45,7 @@ class ApiManager {
                                        do {
                                            let decoder = JSONDecoder()
                                            let result = try decoder.decode(LoginResponseModel.self, from: data)
-                                        self.loginAPIResult(resut: result)
+                                        self.loginAPIResult(result: result)
                                            
                                        } catch let error {
                                            print(error.localizedDescription)
@@ -75,8 +56,12 @@ class ApiManager {
         task.resume()
     }
     
-    func loginAPIResult(resut : LoginResponseModel) {
-        print(resut.peoples?.user_name)
+    func loginAPIResult(result : LoginResponseModel) {
+        self.delegate?.loginAPIResult(status: result.status ?? "", result: result)
     }
     
+}
+
+protocol loginAPIResultDelegate: AnyObject {
+    func loginAPIResult(status: String, result: LoginResponseModel)
 }

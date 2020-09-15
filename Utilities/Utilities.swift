@@ -14,10 +14,19 @@ class HelpingClass {
     static let redAlertBackgroundColor = UIColor(hexString: "d25151")
     static let greenSuccessBackgroundColor = UIColor(hexString: "7ed321")
     static let apiURL = "http://138.197.117.106/api/"
+    static let loginStatus = "LoginStatus"
 }
 
 extension UIViewController {
     
+    
+    func setLoginStatus(isLoggedIn: Bool) {
+        UserDefaults.standard.set(isLoggedIn, forKey: HelpingClass.loginStatus)
+    }
+    
+    func getLoginStatus()-> Bool {
+       return UserDefaults.standard.bool(forKey: HelpingClass.loginStatus)
+    }
     
      func showSnackBarMessage(backgroundColor:UIColor,message:String,action:MDCSnackbarMessageAction?){
         let snackBarMessage = MDCSnackbarMessage()
@@ -33,6 +42,7 @@ extension UIViewController {
             self.present(alert, animated: true)
         }
     }
+    
 }
 
 import SystemConfiguration

@@ -82,6 +82,8 @@ class FirebaseManager {
                 break
             case .custom(_):
                 break
+            case .linkPreview(_):
+                break
             }
             
             let conversationID = "conversation_\(firstMessage.messageId)"
@@ -274,6 +276,8 @@ class FirebaseManager {
             break
         case .custom(_):
             break
+        case .linkPreview(_):
+            break
         }
         guard let currentEmail = UserDefaults.standard.value(forKey: "email") else{
             return
@@ -367,6 +371,8 @@ class FirebaseManager {
             case .contact(_):
                 break
             case .custom(_):
+                break
+            case .linkPreview(_):
                 break
             }
             

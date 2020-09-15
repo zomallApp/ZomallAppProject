@@ -19,20 +19,61 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         IQKeyboardManager.shared.enable = true
         // Override point for customization after application launch.
-       
+        self.loginApiCall()
         let defaults = UserDefaults.standard
         defaults.set("usmanirfan996@gmail.com", forKey: "email")
         defaults.set("Usman", forKey: "name")
 
        FirebaseApp.configure()
-        let storyboard = UIStoryboard(name: "Main", bundle: nil) //Write your storyboard name
-                let viewController = storyboard.instantiateViewControllerWithIdentifier("ViewController")
-                self.window.rootViewController = viewController
-                self.window.makeKeyAndVisible()
-        
+       
         return true
     }
+    
+     func loginApiCall() {
+           let url = URL(string:"https://sayingz.com/api/webemaillogin")
+                  
+                  guard let requestUrl = url else { fatalError() }
 
+                  // Prepare URL Request Object
+                  var request = URLRequest(url: requestUrl)
+                  request.httpMethod = "POST"
+                   
+                  // HTTP Request Parameters which will be sent in HTTP Request Body
+                  let postString = "email=iamahmerr@gmail.com&password=12345678"
+
+                  // Set HTTP Request Body
+                  request.httpBody = postString.data(using: String.Encoding.utf8)
+
+                  // Perform HTTP Request
+                  let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+                          
+                          // Check for Error
+                          if let error = error {
+                              print("Error took place \(error)")
+                              return
+                          }
+                          // Convert HTTP Response Data to a String
+                          if let data = data, let dataString = String(data: data, encoding: .utf8) {
+                              print("Response data string:\n \(dataString)")
+                           
+                                          do {
+                                              let decoder = JSONDecoder()
+                                              let result = try decoder.decode(LoginResponseModel.self, from: data)
+                                           self.loginAPIResult(result: result)
+                                              
+                                          } catch let error {
+                                              print(error.localizedDescription)
+                                             
+                                          }
+                                      }
+                          }
+           task.resume()
+       }
+       
+       func loginAPIResult(result : LoginResponseModel) {
+        
+        print(result.peoples?.gender)
+       }
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

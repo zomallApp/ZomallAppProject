@@ -15,16 +15,18 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var emailTextField: MDCTextField!
     @IBOutlet weak var passwordTextField: MDCTextField!
     @IBOutlet weak var dateOfBirthTextField: MDCTextField!
-    
     @IBOutlet weak var femaleCheckBoxButton: UIButton!
     @IBOutlet weak var maleCheckBoxButton: UIButton!
     
+     var signupModel = SignupAPICallModel()
+    weak var delegate: SignupAPIResultDelegate?
     var isMaleCheckBoxClicked: Bool = false
     var isFemaleCheckBoxClicked: Bool = false
     var floatingTextField = [MDCTextInputControllerUnderline]()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUpTextFields()
+        self.signupModel.delegate = self
       
         
     }
@@ -49,15 +51,40 @@ class SignupViewController: UIViewController {
         isMaleCheckBoxClicked = false
         isFemaleCheckBoxClicked = true
     }
+    func SignupSuccessfulCase() {
+         // push to next screen
+         DispatchQueue.main.async {
+             let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "HomeTabBarController") as! HomeTabBarController
+             self.setLoginStatus(isLoggedIn: true)
+             vc.modalPresentationStyle = .fullScreen
+             self.present(vc, animated: true, completion: nil)
+         }
+     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func signupButtonPressed(_ sender: Any) {
+        var gender = ""
+        if self.isFemaleCheckBoxClicked {
+            gender = "female"
+        }
+        else {
+            gender = "male"
+        }
+        self.signupModel.signupApiCall(credential: self.emailTextField.text ?? "", password: self.passwordTextField.text ?? "", name: self.nameTextField.text ?? "", gender: gender, dob: self.dateOfBirthTextField.text ?? "", country: " Pakistan", age: 20, info: "Info updated", image: "None", interests: "None")
     }
-    */
+    
+    
 
+}
+
+extension SignupViewController: SignupAPIResultDelegate {
+    func signUpAPIResult(status: String, result: SignupResponseModel) {
+        if status == "true" {
+               self.SignupSuccessfulCase()
+           }
+           else {
+               self.showSnackBarMessage(backgroundColor: HelpingClass.redAlertBackgroundColor, message: "Some Server Error", action: nil)
+           }
+    }
+    
+    
 }

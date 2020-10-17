@@ -15,6 +15,15 @@ class HelpingClass {
     static let greenSuccessBackgroundColor = UIColor(hexString: "7ed321")
     static let apiURL = "http://138.197.117.106/api/"
     static let loginStatus = "LoginStatus"
+    
+    static func ApplyShadow(ViewPlaceHolder : UIView,shadowRadius:Int)
+    {
+                ViewPlaceHolder.layer.cornerRadius = 20.0
+               ViewPlaceHolder.layer.shadowColor = UIColor.gray.cgColor
+               ViewPlaceHolder.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+               ViewPlaceHolder.layer.shadowRadius = 12.0
+               ViewPlaceHolder.layer.shadowOpacity = 0.7
+    }
 }
 
 extension UIViewController {

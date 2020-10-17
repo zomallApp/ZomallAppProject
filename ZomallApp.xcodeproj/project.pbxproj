@@ -14,6 +14,9 @@
 		5D4CE9E324C832450029E2CB /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4CE9E224C832450029E2CB /* ApiManager.swift */; };
 		5D4CE9E524C83FCC0029E2CB /* LoginModelStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4CE9E424C83FCC0029E2CB /* LoginModelStruct.swift */; };
 		5D4CE9E724C844D50029E2CB /* LoginModelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4CE9E624C844D50029E2CB /* LoginModelResponse.swift */; };
+		5D848DA0253ADFF8005BF2C5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D848D9F253ADFF8005BF2C5 /* HomeViewController.swift */; };
+		5DAEDAF3253B3D6900862AEC /* OthersProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAEDAF2253B3D6900862AEC /* OthersProfileViewController.swift */; };
+		5DAEDAF5253B8F4000862AEC /* PicturesOfUserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DAEDAF4253B8F4000862AEC /* PicturesOfUserCollectionViewCell.swift */; };
 		5DC8793F24C62551009A4C16 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC8793E24C62551009A4C16 /* LoginViewController.swift */; };
 		5DC8794124C62564009A4C16 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC8794024C62564009A4C16 /* SignupViewController.swift */; };
 		5DC8794324C62A47009A4C16 /* LoginOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC8794224C62A47009A4C16 /* LoginOptionsViewController.swift */; };
@@ -45,6 +48,9 @@
 		5D4CE9E224C832450029E2CB /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		5D4CE9E424C83FCC0029E2CB /* LoginModelStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModelStruct.swift; sourceTree = "<group>"; };
 		5D4CE9E624C844D50029E2CB /* LoginModelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModelResponse.swift; sourceTree = "<group>"; };
+		5D848D9F253ADFF8005BF2C5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		5DAEDAF2253B3D6900862AEC /* OthersProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersProfileViewController.swift; sourceTree = "<group>"; };
+		5DAEDAF4253B8F4000862AEC /* PicturesOfUserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicturesOfUserCollectionViewCell.swift; sourceTree = "<group>"; };
 		5DC8793E24C62551009A4C16 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5DC8794024C62564009A4C16 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		5DC8794224C62A47009A4C16 /* LoginOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOptionsViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +178,9 @@
 				5DC8794224C62A47009A4C16 /* LoginOptionsViewController.swift */,
 				B62D70A424DACDE000095D71 /* PhotoViewController.swift */,
 				5D0DD0A52510C4DB00A7BA34 /* HomeTabBarController.swift */,
+				5D848D9F253ADFF8005BF2C5 /* HomeViewController.swift */,
+				5DAEDAF2253B3D6900862AEC /* OthersProfileViewController.swift */,
+				5DAEDAF4253B8F4000862AEC /* PicturesOfUserCollectionViewCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -325,6 +334,7 @@
 				5D4CE9E724C844D50029E2CB /* LoginModelResponse.swift in Sources */,
 				B697C15524C1C976006CE63E /* SceneDelegate.swift in Sources */,
 				B697C12424C1B4F7006CE63E /* MessageVC.swift in Sources */,
+				5D848DA0253ADFF8005BF2C5 /* HomeViewController.swift in Sources */,
 				5DC8794324C62A47009A4C16 /* LoginOptionsViewController.swift in Sources */,
 				5DC8794524C63AFA009A4C16 /* LoginSignupContainerViewController.swift in Sources */,
 				5DC8794824C6C06C009A4C16 /* Utilities.swift in Sources */,
@@ -335,8 +345,10 @@
 				5DC8793F24C62551009A4C16 /* LoginViewController.swift in Sources */,
 				5D0DD0A62510C4DB00A7BA34 /* HomeTabBarController.swift in Sources */,
 				5D26F4862510B3FB0076BBCB /* LoginAPICallModel.swift in Sources */,
+				5DAEDAF3253B3D6900862AEC /* OthersProfileViewController.swift in Sources */,
 				B64D081524CE9A5600F8C5F8 /* conversations.swift in Sources */,
 				5D0DD0A92510F0A500A7BA34 /* SignUpAPICallModel.swift in Sources */,
+				5DAEDAF5253B8F4000862AEC /* PicturesOfUserCollectionViewCell.swift in Sources */,
 				5D0DD0AB251157B900A7BA34 /* SignupModelResponse.swift in Sources */,
 				B64D080B24CC4D8900F8C5F8 /* FirebaseManager.swift in Sources */,
 				B697C15924C2E5D5006CE63E /* chatModel.swift in Sources */,

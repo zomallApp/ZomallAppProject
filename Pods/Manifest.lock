@@ -689,6 +689,7 @@ PODS:
   - SDWebImage (5.9.1):
     - SDWebImage/Core (= 5.9.1)
   - SDWebImage/Core (5.9.1)
+  - Shuffle-iOS (0.4.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -699,6 +700,7 @@ DEPENDENCIES:
   - MaterialComponents
   - MessageKit
   - SDWebImage
+  - Shuffle-iOS
 
 SPEC REPOS:
   trunk:
@@ -724,6 +726,7 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - SDWebImage
+    - Shuffle-iOS
 
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
@@ -748,7 +751,8 @@ SPEC CHECKSUMS:
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
   SDWebImage: a990c053fff71e388a10f3357edb0be17929c9c5
+  Shuffle-iOS: 87e4d3503475f3d684a375358649911e36fe139f
 
-PODFILE CHECKSUM: 4cba68dcb24a398d8b1a921817f0c98ff6b1b59e
+PODFILE CHECKSUM: 0a320724b53bf9576a21031388870c717f4519eb
 
 COCOAPODS: 1.9.3

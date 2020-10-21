@@ -367,7 +367,7 @@
             <objects>
                 <viewController id="hdo-9c-zIa" customClass="HomeViewController" customModule="ZomallApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FNJ-Mr-e5C">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T5X-ji-HVo">
@@ -388,8 +388,8 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Islamabad, PK." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ye3-m4-qkp">
-                                        <rect key="frame" x="35" y="27.5" width="82.5" height="16"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Islamabad, PK." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ye3-m4-qkp">
+                                        <rect key="frame" x="35" y="32.5" width="82.5" height="16"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -459,6 +459,8 @@
                         <outlet property="heartButton" destination="z28-GH-8mA" id="pQB-3c-jeb"/>
                         <outlet property="refreshButton" destination="O1h-vP-hAu" id="LSY-GC-9mb"/>
                         <outlet property="swipeCard" destination="T5X-ji-HVo" id="TJ5-p3-cMR"/>
+                        <outlet property="userLocationLabel" destination="Ye3-m4-qkp" id="SGw-h9-5Ch"/>
+                        <outlet property="userNameLabel" destination="AOG-7Y-8N6" id="XMN-ew-0vC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dur-p1-ZA3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -706,7 +708,7 @@
             <objects>
                 <viewController id="m4S-AK-tb6" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Q11-6S-uct">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="Nlb-sT-oai"/>
@@ -722,7 +724,7 @@
             <objects>
                 <viewController id="gVE-Vm-0Dd" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NCq-Hn-igV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="d6K-Al-oRX"/>
@@ -738,7 +740,7 @@
             <objects>
                 <viewController id="FLe-Li-G9v" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dFH-Hz-8fQ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uxD-06-2Sd">
@@ -1233,8 +1235,13 @@
                         <viewLayoutGuide key="safeArea" id="Ra5-GN-lgX"/>
                     </view>
                     <connections>
+                        <outlet property="bioLabel" destination="C9f-g0-xaL" id="V6B-gd-ggx"/>
+                        <outlet property="distanceLabel" destination="uRj-tY-4bJ" id="03c-F7-AS6"/>
+                        <outlet property="locationLabel" destination="8Tm-kA-ois" id="6dW-yN-xZp"/>
+                        <outlet property="nameLabel" destination="ImA-fs-lSE" id="hEH-GV-gHn"/>
                         <outlet property="profileDetailView" destination="Odn-0X-CuQ" id="v0F-M5-wkd"/>
                         <outlet property="usersImagesCollectionView" destination="4af-1K-3MP" id="jAa-Fl-pw1"/>
+                        <outlet property="workLabel" destination="NY9-F1-N7L" id="gmv-iW-AJN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dp1-OJ-8I4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

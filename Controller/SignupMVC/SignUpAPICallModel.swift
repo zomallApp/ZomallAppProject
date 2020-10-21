@@ -56,7 +56,7 @@ extension SignupAPICallModel {
     }
     
     func SignupAPIResult(result : SignupResponseModel) {
-
+        
         self.delegate?.signUpAPIResult(status: result.status ?? "Undefined" , result: result)
     }
     

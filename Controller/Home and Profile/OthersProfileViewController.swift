@@ -12,17 +12,25 @@ class OthersProfileViewController: UIViewController {
 
     @IBOutlet weak var usersImagesCollectionView: UICollectionView!
     @IBOutlet weak var profileDetailView: UIView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var workLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var bioLabel: UILabel!
     var index: Int?
     let images = [ #imageLiteral(resourceName: "Me"), #imageLiteral(resourceName: "launch"), #imageLiteral(resourceName: "Me"), #imageLiteral(resourceName: "launch"), #imageLiteral(resourceName: "Me"), #imageLiteral(resourceName: "launch"), #imageLiteral(resourceName: "Me"), #imageLiteral(resourceName: "launch")]
     
+    var profileInfo: UserInfo?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-       // print(index)
+      //  print(profileInfo)
         
         self.usersImagesCollectionView.delegate = self
         self.usersImagesCollectionView.dataSource = self
 
         self.setupProfileView()
+        self.setupData()
          //self.profileDetailView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
        // HelpingClass.ApplyShadow(ViewPlaceHolder: self.profileDetailView, shadowRadius: 0)
     }
@@ -46,9 +54,16 @@ class OthersProfileViewController: UIViewController {
            self.profileDetailView.layer.masksToBounds = false;
            self.profileDetailView.layer.cornerRadius = 20
            self.profileDetailView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner] // top left corner, top right corner respectively
-         HelpingClass.ApplyShadow(ViewPlaceHolder: self.profileDetailView, shadowRadius: 5)x
+         HelpingClass.ApplyShadow(ViewPlaceHolder: self.profileDetailView, shadowRadius: 5)
        
        }
+    
+    func setupData() {
+        self.nameLabel.text = "\(self.profileInfo?.user_name ?? ""),\(self.profileInfo?.age ?? "")"
+        self.workLabel.text = self.profileInfo?.interest
+        self.distanceLabel.text = self.profileInfo?.location
+        self.bioLabel.text = self.profileInfo?.bio
+    }
 
     @IBAction func backButton(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -77,7 +92,7 @@ extension OthersProfileViewController: UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        <#code#>
+        print("Selected")
     }
     
 
